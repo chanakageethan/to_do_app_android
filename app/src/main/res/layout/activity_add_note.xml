@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/screen_default_horizontal_margin"
+    android:layout_marginVertical="@dimen/screen_default_vertical_margin"
+    >
+
+    <RelativeLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_note"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:layout_below="@+id/tvHeader"
+             />
+
+        <EditText
+            android:id="@+id/etNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:layout_below="@+id/etTitle"
+            />
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/btnSaveNote"
+        style="@style/AppTheme.BlueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_note"
+        android:background="@color/blue"
+        android:onClick="onClick"
+        android:enabled="false"
+        android:layout_alignBottom="@+id/mainContainer"
+        />
+</RelativeLayout>
+
+</layout>
