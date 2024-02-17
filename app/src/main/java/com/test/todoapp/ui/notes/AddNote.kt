@@ -1,4 +1,4 @@
-package com.test.todoapp.ui
+package com.test.todoapp.ui.notes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,8 +19,8 @@ class AddNote : AppCompatActivity() {
         setContentView(R.layout.activity_add_note)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_note)
 
-        binding.etTitle.addTextChangedListener(textWatcher)
-        binding.etNote.addTextChangedListener(textWatcher)
+        binding.etTitle.editText?.addTextChangedListener(textWatcher)
+        binding.etNote.editText?.addTextChangedListener(textWatcher)
 
 
     }
@@ -40,11 +40,12 @@ class AddNote : AppCompatActivity() {
         binding.btnSaveNote.isEnabled = isDataChanged()
     }
 
-    fun isDataChanged(): Boolean {
+    private fun isDataChanged(): Boolean {
         var changed: Boolean
         return try {
             changed =
-                !binding.etTitle.text.toString().isNullOrEmpty() && !binding.etNote.text.toString()
+                !binding.etTitle.editText?.text.toString()
+                    .isNullOrEmpty() && !binding.etNote.editText?.text.toString()
                     .isNullOrEmpty()
 
             changed
@@ -56,8 +57,8 @@ class AddNote : AppCompatActivity() {
 
     fun onClick(v: View) {
         if (v.id == R.id.btnSaveNote) {
-            Log.d("new_note", binding.etTitle.text.toString())
-            Log.d("new_note", binding.etNote.text.toString())
+            Log.d("new_note", binding.etTitle.editText?.text.toString())
+            Log.d("new_note", binding.etNote.editText?.text.toString())
         }
     }
 }
