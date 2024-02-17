@@ -2,7 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 
     >
-
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:fillViewport="true"
+       >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/tvHeader"
@@ -32,15 +37,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/AppTheme.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints="username"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/title"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,10 +62,13 @@
                     style="@style/AppTheme.TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints="username"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/add_note"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
 
         </RelativeLayout>
 
@@ -74,7 +82,10 @@
             android:background="@color/blue"
             android:enabled="false"
             android:onClick="onClick"
-            android:text="@string/save_note" />
-    </RelativeLayout>
+            android:text="@string/save_note"
+            />
 
+
+    </RelativeLayout>
+   </ScrollView>
 </layout>
