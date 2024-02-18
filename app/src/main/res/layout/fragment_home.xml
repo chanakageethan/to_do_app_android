@@ -4,6 +4,8 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/screen_default_horizontal_margin"
+    android:layout_marginVertical="@dimen/screen_default_vertical_margin"
     tools:context=".ui.home.HomeFragment">
 
             <RelativeLayout

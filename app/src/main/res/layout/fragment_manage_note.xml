@@ -85,7 +85,6 @@
                 android:layout_alignBottom="@+id/mainContainer"
                 android:background="@color/blue"
                 android:enabled="false"
-                android:onClick="onClick"
                 android:text="@string/save_note"
                 />
 

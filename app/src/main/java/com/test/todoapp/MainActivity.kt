@@ -1,12 +1,9 @@
 package com.test.todoapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.test.todoapp.databinding.ActivityMainBinding
-import com.test.todoapp.ui.notes.AddNote
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding

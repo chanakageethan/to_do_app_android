@@ -11,11 +11,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.test.todoapp.R
 import com.test.todoapp.databinding.FragmentManageNoteBinding
+import com.test.todoapp.utils.IUtils
 
 
 class ManageNoteFragment : Fragment() {
     private lateinit var binding: FragmentManageNoteBinding
     private   var isEdit : Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +32,12 @@ class ManageNoteFragment : Fragment() {
 
         binding.etTitle.editText?.addTextChangedListener(textWatcher)
         binding.etNote.editText?.addTextChangedListener(textWatcher)
+
+        binding.btnSaveNote.setOnClickListener {
+            Log.d("new_note", binding.etTitle.editText?.text.toString())
+            Log.d("new_note", binding.etNote.editText?.text.toString())
+
+        }
 
 
         return binding.root
@@ -65,10 +73,5 @@ class ManageNoteFragment : Fragment() {
     }
 
 
-    fun onClick(v: View) {
-        if (v.id == R.id.btnSaveNote) {
-            Log.d("new_note", binding.etTitle.editText?.text.toString())
-            Log.d("new_note", binding.etNote.editText?.text.toString())
-        }
-    }
+
 }
