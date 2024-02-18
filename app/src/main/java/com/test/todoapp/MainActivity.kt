@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun onClick(v: View){
-        if(v.id == R.id.addNote){
-            navigateToAddNotesScreen()
-        }
-    }
-    private fun navigateToAddNotesScreen(){
-        val intent = Intent(this, AddNote::class.java)
-        intent.putExtra("test", "testContent")
-        startActivity(intent)
-    }
+//    fun onClick(v: View){
+//        if(v.id == R.id.addNote){
+//            navigateToAddNotesScreen()
+//        }
+//    }
+//    private fun navigateToAddNotesScreen(){
+//        val intent = Intent(this, AddNote::class.java)
+//        intent.putExtra("test", "testContent")
+//        startActivity(intent)
+//    }
 }

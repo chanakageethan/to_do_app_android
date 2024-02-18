@@ -3,40 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginHorizontal="@dimen/screen_default_horizontal_margin"-->
+<!--        android:layout_marginVertical="@dimen/screen_default_vertical_margin"-->
+<!--        tools:context=".MainActivity">-->
+
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/mainContainer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvHeader"-->
+<!--                style="@style/AppTheme.TextView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/home_screen_header"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </RelativeLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/addNote"-->
+<!--            style="@style/AppTheme.BlueButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignBottom="@+id/mainContainer"-->
+<!--            android:background="@color/blue"-->
+<!--            android:onClick="onClick"-->
+<!--            android:text="@string/add_note" />-->
+<!--    </RelativeLayout>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/screen_default_horizontal_margin"
-        android:layout_marginVertical="@dimen/screen_default_vertical_margin"
         tools:context=".MainActivity">
 
 
-        <RelativeLayout
-            android:id="@+id/mainContainer"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvHeader"
-                style="@style/AppTheme.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/home_screen_header"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/addNote"
-            style="@style/AppTheme.BlueButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/mainContainer"
-            android:background="@color/blue"
-            android:onClick="onClick"
-            android:text="@string/add_note" />
+            android:layout_height="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_nav_graph" />
     </RelativeLayout>
 </layout>
 
