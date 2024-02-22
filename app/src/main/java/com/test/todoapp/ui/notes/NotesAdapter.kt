@@ -32,8 +32,9 @@ class NotesAdapter(
 
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(note:Note ,clickListener: (Note) -> Unit){
-            val titleTextView = view.findViewById<TextView>(R.id.etTitle)
+            val titleTextView = view.findViewById<TextView>(R.id.tvTitle)
             titleTextView.text = note.title
+
 
             view.setOnClickListener(){
                 clickListener(note)

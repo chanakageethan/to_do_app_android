@@ -6,6 +6,7 @@
     <string name="home_screen_header">Dashboard</string>
     <string name="title">Title</string>
     <string name="note">Note</string>
+    <string name="note_details_screen_header">Note Details</string>
 
 
     <string name="splash_header_1">To</string>

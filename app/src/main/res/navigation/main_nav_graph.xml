@@ -13,9 +13,17 @@
         <action
             android:id="@+id/action_homeFragment_to_manageNoteFragment"
             app:destination="@id/manageNoteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_noteDetailsFragment"
+            app:destination="@id/noteDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/manageNoteFragment"
         android:name="com.test.todoapp.ui.notes.ManageNoteFragment"
         android:label="ManageNoteFragment" />
+    <fragment
+        android:id="@+id/noteDetailsFragment"
+        android:name="com.test.todoapp.ui.notes.NoteDetailsFragment"
+        android:label="fragment_note_details"
+        tools:layout="@layout/fragment_note_details" />
 </navigation>

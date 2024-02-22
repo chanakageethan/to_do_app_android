@@ -26,18 +26,31 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tvHeader"
+                    />
+                <TextView
+                    android:id="@+id/addNote"
+                    style="@style/AppTheme.BlueButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/recyclerView"
+                    android:background="@color/blue"
+                    android:text="@string/add_note"
+                    />
+
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/addNote"
-                style="@style/AppTheme.BlueButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/mainContainer"
-                android:background="@color/blue"
-                android:text="@string/add_note" />
+<!--    <TextView-->
+<!--        android:id="@+id/addNote"-->
+<!--        style="@style/AppTheme.BlueButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBottom="@+id/mainContainer"-->
+<!--        android:background="@color/blue"-->
+<!--        android:text="@string/add_note"-->
+<!--        />-->
 
 </RelativeLayout>
 </layout>

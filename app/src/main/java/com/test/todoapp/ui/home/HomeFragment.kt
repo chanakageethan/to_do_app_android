@@ -29,6 +29,15 @@ class HomeFragment : Fragment(){
         Note("list title 4","sample Note"),
         Note("list title 5","sample Note"),
         Note("list title 6","sample Note"),
+        Note("list title 7","sample Note"),
+        Note("list title 8","sample Note"),
+        Note("list title 9","sample Note"),
+        Note("list title 10","sample Note"),
+        Note("list title 11","sample Note"),
+        Note("list title 12","sample Note"),
+        Note("list title 13","sample Note"),
+        Note("list title 14","sample Note"),
+        Note("list title 15","sample Note"),
     )
 
     override fun onCreateView(
@@ -39,7 +48,7 @@ class HomeFragment : Fragment(){
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
 
 
-        binding?.recyclerView?.setBackgroundColor(Color.BLUE)
+
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
         binding?.recyclerView?.adapter =  NotesAdapter(
             notesList,
@@ -64,6 +73,8 @@ class HomeFragment : Fragment(){
             "Note : ${note.note}",
             Toast.LENGTH_LONG
         ).show()
+
+        navigateToNoteDetailsFragment()
     }
 
 
@@ -71,6 +82,14 @@ class HomeFragment : Fragment(){
         val bundle: Bundle = bundleOf("is_edit" to false)
         findNavController().navigate(
             R.id.action_homeFragment_to_manageNoteFragment,
+            bundle
+        )
+    }
+
+    private fun navigateToNoteDetailsFragment(){
+        val bundle: Bundle = bundleOf("note" to "test")
+        findNavController().navigate(
+            R.id.action_homeFragment_to_noteDetailsFragment,
             bundle
         )
     }
