@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.test.todoapp.R
 import com.test.todoapp.databinding.FragmentManageNoteBinding
-import com.test.todoapp.utils.IUtils
+
 
 
 class ManageNoteFragment : Fragment() {
