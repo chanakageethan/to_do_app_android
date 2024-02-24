@@ -74,7 +74,7 @@ class HomeFragment : Fragment(){
             Toast.LENGTH_LONG
         ).show()
 
-        navigateToNoteDetailsFragment()
+        navigateToNoteDetailsFragment(note)
     }
 
 
@@ -86,8 +86,10 @@ class HomeFragment : Fragment(){
         )
     }
 
-    private fun navigateToNoteDetailsFragment(){
-        val bundle: Bundle = bundleOf("note" to "test")
+    private fun navigateToNoteDetailsFragment(note:Note){
+        val bundle: Bundle = bundleOf("title" to note.title,
+            "note" to note.note)
+
         findNavController().navigate(
             R.id.action_homeFragment_to_noteDetailsFragment,
             bundle
