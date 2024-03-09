@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs")
-
+    id ("kotlin-kapt")
 }
 
 android {
@@ -44,17 +44,29 @@ android {
 
 dependencies {
 
-    val lifecycleVersion = "2.6.2"
-    val nav_version = "2.7.5"
+//    val lifecycleVersion = "2.6.2"
+    val navVersion = "2.7.5"
 
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    val lifeCycleVersion = "2.6.0-alpha01"
+    val roomVersion = "2.4.3"
+
+
+
+    // ViewModel & LiveData
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion")
+    implementation ("androidx.lifecycle:lifecycle-common-java8:$lifeCycleVersion")
+    // Room
+    implementation ("androidx.room:room-runtime:$roomVersion")
+    kapt ("androidx.room:room-compiler:$roomVersion")
+    implementation ("androidx.room:room-ktx:$roomVersion")
+
+    //Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

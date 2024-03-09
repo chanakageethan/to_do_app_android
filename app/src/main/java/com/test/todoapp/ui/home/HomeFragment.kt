@@ -22,22 +22,24 @@ class HomeFragment : Fragment(){
 
     private lateinit var binding :FragmentHomeBinding
 
+    var testData = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
     val notesList = listOf<Note>(
-        Note("list title 1","sample Note"),
-        Note("list title 2","sample Note"),
-        Note("list title 3","sample Note"),
-        Note("list title 4","sample Note"),
-        Note("list title 5","sample Note"),
-        Note("list title 6","sample Note"),
-        Note("list title 7","sample Note"),
-        Note("list title 8","sample Note"),
-        Note("list title 9","sample Note"),
-        Note("list title 10","sample Note"),
-        Note("list title 11","sample Note"),
-        Note("list title 12","sample Note"),
-        Note("list title 13","sample Note"),
-        Note("list title 14","sample Note"),
-        Note("list title 15","sample Note"),
+        Note("list title 1",testData),
+        Note("list title 2",testData),
+        Note("list title 3",testData),
+        Note("list title 4",testData),
+        Note("list title 5",testData),
+        Note("list title 6",testData),
+        Note("list title 7",testData),
+        Note("list title 8",testData),
+        Note("list title 9",testData),
+        Note("list title 10",testData),
+        Note("list title 11",testData),
+        Note("list title 12",testData),
+        Note("list title 13",testData),
+        Note("list title 14",testData),
+        Note("list title 15",testData),
     )
 
     override fun onCreateView(
