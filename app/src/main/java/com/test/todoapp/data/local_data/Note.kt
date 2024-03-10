@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "notes_table")
-data class Notes(
+@Entity(tableName = "notes_data_table")
+data class Note(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "note_id")
