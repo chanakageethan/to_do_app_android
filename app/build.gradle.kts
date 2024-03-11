@@ -47,8 +47,8 @@ dependencies {
 //    val lifecycleVersion = "2.6.2"
     val navVersion = "2.7.5"
 
-    val lifeCycleVersion = "2.6.0-alpha01"
-    val roomVersion = "2.4.3"
+    val lifeCycleVersion = "2.7.0"
+    val roomVersion = "2.6.1"
 
 
 
