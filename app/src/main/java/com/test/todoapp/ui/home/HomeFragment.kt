@@ -10,18 +10,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.todoapp.R
+import com.test.todoapp.data.local_data.NotesDatabase
 import com.test.todoapp.data.model.Note
 import com.test.todoapp.databinding.FragmentHomeBinding
+import com.test.todoapp.repository.NotesRepository
 import com.test.todoapp.ui.notes.NotesAdapter
 
 
 class HomeFragment : Fragment(){
 
     private lateinit var binding :FragmentHomeBinding
-
+    private lateinit var notesViewModel: NotesViewModel
     var testData = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
     val notesList = listOf<Note>(
@@ -49,8 +53,6 @@ class HomeFragment : Fragment(){
 
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
 
-
-
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
         binding?.recyclerView?.adapter =  NotesAdapter(
             notesList,
@@ -60,12 +62,27 @@ class HomeFragment : Fragment(){
         }
 
 
+        val dao = NotesDatabase.getInstance(requireContext()).notesDAO
+        val repository =  NotesRepository(dao)
+        val factory =  NotesViewModelFactory(repository)
+        notesViewModel = ViewModelProvider(this, factory!!)[NotesViewModel::class.java]
+        binding.myViewModel = notesViewModel
+        binding.lifecycleOwner = this
+        displaySubscribersList()
+
 
         binding.addNote.setOnClickListener {
             navigateToManageNoteFragment()
         }
 
         return  binding.root
+    }
+
+
+    private fun displaySubscribersList(){
+        notesViewModel.notes.observe(viewLifecycleOwner, Observer {
+            Log.i("MYTAG",it.toString())
+        })
     }
 
 

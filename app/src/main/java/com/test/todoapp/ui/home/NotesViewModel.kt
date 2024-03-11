@@ -23,11 +23,16 @@ class NotesViewModel(private  val repository: NotesRepository):ViewModel() {
     }
 
     fun saveOrUpdate(){
+        val title =  inputTitle.value!!
+        val note = inputNoteContent.value!!
 
+        insert(Note(0,title,note))
+        inputTitle.value = ""
+        inputNoteContent.value = ""
     }
 
     fun clearAllOrDelete(){
-
+        clearAll()
     }
 
     fun insert(note:Note) = viewModelScope.launch(Dispatchers.IO) {

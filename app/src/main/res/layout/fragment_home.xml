@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout   xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.test.todoapp.ui.home.NotesViewModel" />
+    </data>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,34 +29,98 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
+                <LinearLayout
+                    android:id="@+id/upperContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/tvHeader"
+                    >
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etTitle"
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/AppTheme.TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/title"
+                            android:text="@={myViewModel.inputTitle}"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etNote"
+                        style="@style/Widget.App.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/etTitle"
+                        android:layout_marginTop="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/AppTheme.TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:hint="@string/add_note"
+                            android:text="@={myViewModel.inputNoteContent}"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnSaveOrUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@={myViewModel.saveOrUpdateButtonText}"
+                        android:onClick="@{()->myViewModel.saveOrUpdate()}"
+                        />
+
+                    <Button
+                        android:id="@+id/btnClearAllOrDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@={myViewModel.clearAllOrDeleteButtonText}"
+                        android:onClick="@{()->myViewModel.clearAllOrDelete()}"
+                        />
+                </LinearLayout>
+                </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/tvHeader"
+                    android:layout_below="@+id/upperContent"
+                   android:visibility="gone"
                     />
-                <TextView
-                    android:id="@+id/addNote"
-                    style="@style/AppTheme.BlueButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/recyclerView"
-                    android:background="@color/blue"
-                    android:text="@string/add_note"
-                    />
+
 
 
             </RelativeLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/addNote"-->
-<!--        style="@style/AppTheme.BlueButton"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignBottom="@+id/mainContainer"-->
-<!--        android:background="@color/blue"-->
-<!--        android:text="@string/add_note"-->
-<!--        />-->
-
+    <TextView
+        android:id="@+id/addNote"
+        style="@style/AppTheme.BlueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:text="@string/add_note"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>
 </layout>
