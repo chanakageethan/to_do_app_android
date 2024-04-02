@@ -11,6 +11,9 @@ import kotlinx.coroutines.launch
 class NotesViewModel(private  val repository: NotesRepository):ViewModel() {
     val notes = repository.notes
 
+    private var isUpdateOrDelete = false
+    private lateinit var notesToUpdateOrDelete:Note
+
     val inputTitle  = MutableLiveData<String>()
     val inputNoteContent = MutableLiveData<String>()
 
