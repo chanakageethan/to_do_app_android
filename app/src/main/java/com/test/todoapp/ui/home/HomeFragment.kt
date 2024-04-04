@@ -20,9 +20,9 @@ import com.test.todoapp.databinding.FragmentHomeBinding
 import com.test.todoapp.repository.NotesRepository
 
 
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment() {
 
-    private lateinit var binding :FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var notesViewModel: NotesViewModel
     private lateinit var adapter: NotesAdapter
 
@@ -31,15 +31,14 @@ class HomeFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
 
 
-
         val dao = NotesDatabase.getInstance(requireContext()).notesDAO
-        val repository =  NotesRepository(dao)
-        val factory =  NotesViewModelFactory(repository)
+        val repository = NotesRepository(dao)
+        val factory = NotesViewModelFactory(repository)
         notesViewModel = ViewModelProvider(this, factory!!)[NotesViewModel::class.java]
         binding.myViewModel = notesViewModel
         binding.lifecycleOwner = this
@@ -58,27 +57,24 @@ class HomeFragment : Fragment(){
             }
         })
 
-        return  binding.root
+        return binding.root
     }
 
-    private  fun initRecycleView(){
+    private fun initRecycleView() {
 
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         adapter = NotesAdapter(
             { selectedItem: com.test.todoapp.data.local_data.Note ->
                 listItemClicked(selectedItem)
             })
-
-        binding.recyclerView.adapter =adapter
+        binding.recyclerView.adapter = adapter
         displaySubscribersList()
     }
 
 
-
-
-
-    private fun displaySubscribersList(){
+    private fun displaySubscribersList() {
         notesViewModel.notes.observe(viewLifecycleOwner, Observer {
             Log.i("MYTAG", it.toString())
             adapter.setList(it)
@@ -87,12 +83,12 @@ class HomeFragment : Fragment(){
     }
 
 
-    private fun listItemClicked(note: com.test.todoapp.data.local_data.Note){
-    notesViewModel.initUpdateAndDelete(note)
+    private fun listItemClicked(note: com.test.todoapp.data.local_data.Note) {
+        notesViewModel.initUpdateAndDelete(note)
     }
 
 
-    private fun navigateToManageNoteFragment(){
+    private fun navigateToManageNoteFragment() {
         val bundle: Bundle = bundleOf("is_edit" to false)
         findNavController().navigate(
             R.id.action_homeFragment_to_manageNoteFragment,
@@ -100,16 +96,17 @@ class HomeFragment : Fragment(){
         )
     }
 
-    private fun navigateToNoteDetailsFragment(note:Note){
-        val bundle: Bundle = bundleOf("title" to note.title,
-            "note" to note.note)
+    private fun navigateToNoteDetailsFragment(note: Note) {
+        val bundle: Bundle = bundleOf(
+            "title" to note.title,
+            "note" to note.note
+        )
 
         findNavController().navigate(
             R.id.action_homeFragment_to_noteDetailsFragment,
             bundle
         )
     }
-
 
 
 }

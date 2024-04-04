@@ -113,14 +113,14 @@
 
             </RelativeLayout>
 
-    <TextView
-        android:id="@+id/addNote"
-        style="@style/AppTheme.BlueButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
-        android:text="@string/add_note"
-        android:layout_alignParentBottom="true"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/addNote"-->
+<!--        style="@style/AppTheme.BlueButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/blue"-->
+<!--        android:text="@string/add_note"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        />-->
 </RelativeLayout>
 </layout>

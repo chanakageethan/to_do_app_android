@@ -47,16 +47,13 @@ class NotesViewModel(private val repository: NotesRepository) : ViewModel() {
                 val title = inputTitle.value!!
                 val note = inputNoteContent.value!!
                 insert(Note(0, title, note))
+                inputTitle.value = ""
+                inputNoteContent.value = ""
             }
         }
 
 
-        val title = inputTitle.value!!
-        val note = inputNoteContent.value!!
 
-        insert(Note(0, title, note))
-        inputTitle.value = ""
-        inputNoteContent.value = ""
     }
 
     fun clearAllOrDelete() {
