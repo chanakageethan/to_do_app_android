@@ -48,9 +48,15 @@ class HomeFragment : Fragment(){
         displaySubscribersList()
 
 
-        binding.addNote.setOnClickListener {
-            navigateToManageNoteFragment()
-        }
+//        binding.addNote.setOnClickListener {
+//            navigateToManageNoteFragment()
+//        }
+
+        notesViewModel.message.observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled()?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+            }
+        })
 
         return  binding.root
     }
@@ -63,8 +69,9 @@ class HomeFragment : Fragment(){
             { selectedItem: com.test.todoapp.data.local_data.Note ->
                 listItemClicked(selectedItem)
             })
-        displaySubscribersList()
+
         binding.recyclerView.adapter =adapter
+        displaySubscribersList()
     }
 
 
@@ -81,13 +88,7 @@ class HomeFragment : Fragment(){
 
 
     private fun listItemClicked(note: com.test.todoapp.data.local_data.Note){
-        Toast.makeText(
-            context,
-            "Note : ${note.noteTitle}",
-            Toast.LENGTH_LONG
-        ).show()
-
-//        navigateToNoteDetailsFragment(note)
+    notesViewModel.initUpdateAndDelete(note)
     }
 
 

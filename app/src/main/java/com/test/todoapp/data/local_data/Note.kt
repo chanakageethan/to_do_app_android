@@ -13,9 +13,9 @@ data class Note(
     val noteId: Int,
 
     @ColumnInfo(name = "note_title")
-    val noteTitle: String,
+    var noteTitle: String,
 
     @ColumnInfo(name = "note_content")
-    val noteContent: String
+    var noteContent: String
 
 )

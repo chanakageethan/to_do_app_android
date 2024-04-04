@@ -9,10 +9,10 @@ interface NotesDAO {
     suspend fun insertNote(note:Note): Long
 
     @Update
-    suspend fun updateNote(note:Note)
+    suspend fun updateNote(note:Note):Int
 
     @Delete
-    suspend fun delete(note: Note)
+    suspend fun delete(note: Note):Int
 
     @Query("DELETE FROM notes_data_table")
     suspend fun deleteAll():Int
